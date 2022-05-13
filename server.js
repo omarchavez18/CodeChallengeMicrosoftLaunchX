@@ -18,7 +18,7 @@ app.get("/students", (req, res) => {
 
 // Habilitar un endpoint para consultar los emails de todos los estudiantes que tengan certificación haveCertification.
 app.get("/students/emails", (req, res) => {
-    const haveCertification = req.params.haveCertification;
+    const haveCertification = req.params.haveCertification === "true";
     const correosAlumnos = studentController.getEmailsStudents(haveCertification);
     res.json(correosAlumnos);
 });
