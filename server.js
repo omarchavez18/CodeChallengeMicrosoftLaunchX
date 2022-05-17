@@ -7,29 +7,29 @@ const port = 3000;
 
 //endpoint prueba de bienvenida
 app.get("/", (req, res) => {
-    res.json({ message: "Welcome Code Challenge User" });
+  res.json({ message: "Welcome Code Challenge User" });
 });
 
 // Habilitar un endpoint para consultar todos los estudiantes
 app.get("/students", (req, res) => {
-    const explorersStudents = studentController.getStudents();
-    res.json(explorersStudents);
+  const explorersStudents = studentController.getStudents();
+  res.json(explorersStudents);
 });
 
 // Habilitar un endpoint para consultar los emails de todos los estudiantes que tengan certificación haveCertification.
 app.get("/students/emails", (req, res) => {
-    const haveCertification = req.params.haveCertification === "true";
-    const correosAlumnos = studentController.getEmailsStudents(haveCertification);
-    res.json(correosAlumnos);
+  const haveCertification = req.params.haveCertification === "true";
+  const correosAlumnos = studentController.getEmailsStudents(haveCertification);
+  res.json(correosAlumnos);
 });
 
 // Habilitar un endpoint para consultar todos los estudiantes que tengan credits mayor a 500.
 app.get("/students/credits", (req, res) => {
-    const credits = req.params.credits;
-    const studentCredits = studentController.getStudentCreditList(credits);
-    res.json(studentCredits);
+  const credits = req.params.credits;
+  const studentCredits = studentController.getStudentCreditList(credits);
+  res.json(studentCredits);
 });
 
 app.listen(port, () => {
-    console.log("Code Challenge Server Ready!!");
+  console.log("Code Challenge Server Ready!!");
 });
